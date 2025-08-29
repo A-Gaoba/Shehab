@@ -1,4 +1,4 @@
-# سفر روسيا - Russia Travel Website
+# شهاب موسكو - Russia Travel Website
 
 A modern, responsive travel website built with React, TypeScript, and Tailwind CSS, specializing in Russian tourism for Arabic-speaking travelers.
 
@@ -140,4 +140,4 @@ src/
 
 ## 📄 License
 
-© 2024 سفر روسيا - Russia Travel. All rights reserved.
+© 2024 شهاب موسكو - Russia Travel. All rights reserved.

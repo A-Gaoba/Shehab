@@ -54,7 +54,7 @@ const AboutUs: React.FC = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <h3 className="text-3xl font-bold text-white mb-6">لماذا تختار سفر روسيا؟</h3>
+              <h3 className="text-3xl font-bold text-white mb-6">لماذا تختار شهاب موسكو؟</h3>
               <div className="space-y-4">
                 <div className="flex items-start space-x-4 rtl:space-x-reverse">
                   <div className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
@@ -170,7 +170,7 @@ const AboutUs: React.FC = () => {
               <div className="bg-gray-800/90 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-gray-600">
                 <img
                   src="https://images.unsplash.com/photo-1751729105405-5751630f4769?q=80&w=736&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt="فريق سفر روسيا - أفضل شركة سياحة روسية للعرب"
+                  alt="فريق شهاب موسكو - أفضل شركة سياحة روسية للعرب"
                   className="w-full h-80 object-cover rounded-2xl"
                 />
                 <div className="mt-6 text-center">

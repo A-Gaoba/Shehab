@@ -16,17 +16,17 @@ interface SEOHeadProps {
 }
 
 const SEOHead: React.FC<SEOHeadProps> = ({
-  title = "سفر روسيا - أفضل شركة سياحة روسية للعرب | رحلات فاخرة 2024",
-  description = "أفضل شركة سياحة روسية للعرب ⭐ رحلات فاخرة إلى موسكو وسوتشي وسانت بطرسبرغ مع مرشدين عرب محترفين ✈️ حجز فوري وأسعار تنافسية",
-  keywords = "سفر روسيا, سياحة روسيا, رحلات موسكو, سوتشي, سانت بطرسبرغ, مرشد عربي روسيا, باقات سفر روسيا, فنادق روسيا, حجز رحلات روسيا",
-  image = "https://russia-travel.com/og-image.jpg",
-  url = "https://russia-travel.com",
+  title = "شهاب موسكو - أفضل شركة سياحة روسية للعرب | رحلات فاخرة 2024",
+  description = "شهاب موسكو - أفضل شركة سياحة روسية للعرب ⭐ رحلات فاخرة إلى موسكو وسوتشي وسانت بطرسبرغ مع مرشدين عرب محترفين ✈️ حجز فوري وأسعار تنافسية",
+  keywords = "شهاب موسكو, شهاب موسكو, سياحة روسيا, رحلات موسكو, سوتشي, سانت بطرسبرغ, مرشد عربي روسيا, باقات شهاب موسكو, فنادق روسيا, حجز رحلات روسيا",
+  image = "https://shehab-moscow.com/og-image.jpg",
+  url = "https://shehab-moscow.com",
   type = "website",
-  author = "سفر روسيا",
+  author = "شهاب موسكو",
   publishedTime,
   modifiedTime,
   locale = "ar_SA",
-  siteName = "سفر روسيا - أفضل شركة سياحة روسية للعرب",
+  siteName = "شهاب موسكو - أفضل شركة سياحة روسية للعرب",
   robots = "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
 }) => {
   React.useEffect(() => {

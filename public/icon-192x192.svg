@@ -2,5 +2,5 @@
   <rect width="192" height="192" rx="24" fill="#1f2937"/>
   <path d="M48 96L96 48L144 96L96 144L48 96Z" fill="#dc2626"/>
   <circle cx="96" cy="96" r="20" fill="#ffffff"/>
-  <text x="96" y="160" text-anchor="middle" fill="#ffffff" font-family="Arial" font-size="16" font-weight="bold">سفر روسيا</text>
+  <text x="96" y="160" text-anchor="middle" fill="#ffffff" font-family="Arial" font-size="16" font-weight="bold">شهاب موسكو</text>
 </svg>

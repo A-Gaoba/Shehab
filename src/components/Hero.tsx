@@ -6,12 +6,12 @@ import LazyImage from './LazyImage';
 
 const Hero: React.FC = () => {
   const heroStructuredData = {
-    name: "سفر روسيا",
+    name: "شهاب موسكو",
     description: "أفضل شركة سياحة روسية للعرب. رحلات مميزة إلى موسكو وسوتشي وسانت بطرسبرغ مع مرشدين عرب محترفين",
-    url: "https://russia-travel.com",
-    logo: "https://russia-travel.com/logo.png",
+    url: "https://shehab-moscow.com",
+    logo: "https://shehab-moscow.com/logo.png",
     telephone: "+79174828474",
-    email: "info@russia-travel.com",
+    email: "info@shehab-moscow.com",
     address: {
       "@type": "PostalAddress",
       "streetAddress": "Moscow",
@@ -31,9 +31,9 @@ const Hero: React.FC = () => {
   return (
     <>
       <SEOHead
-        title="سفر روسيا - أفضل شركة سياحة روسية للعرب | رحلات موسكو وسوتشي وسانت بطرسبرغ"
-        description="أفضل شركة سياحة روسية للعرب. رحلات مميزة إلى موسكو وسوتشي وسانت بطرسبرغ مع مرشدين عرب محترفين. احجز رحلتك الآن بأفضل الأسعار وخدمة 5 نجوم."
-        keywords="سفر روسيا, سياحة روسيا, رحلات موسكو, سوتشي, سانت بطرسبرغ, سياحة عربية, مرشد عربي روسيا, فنادق موسكو, باقات سياحية روسيا, شركة سياحة روسية"
+        title="شهاب موسكو - أفضل شركة سياحة روسية للعرب | رحلات موسكو وسوتشي وسانت بطرسبرغ"
+        description="شهاب موسكو - أفضل شركة سياحة روسية للعرب. رحلات مميزة إلى موسكو وسوتشي وسانت بطرسبرغ مع مرشدين عرب محترفين. احجز رحلتك الآن بأفضل الأسعار وخدمة 5 نجوم."
+        keywords="شهاب موسكو, شهاب موسكو, سياحة روسيا, رحلات موسكو, سوتشي, سانت بطرسبرغ, سياحة عربية, مرشد عربي روسيا, فنادق موسكو, باقات سياحية روسيا, شركة سياحة روسية"
       />
 
       <StructuredData type="organization" data={heroStructuredData} />
@@ -50,7 +50,7 @@ const Hero: React.FC = () => {
               https://images.unsplash.com/photo-1547448415-e9f5b28e570d?q=65&w=1200&auto=format&fit=crop&fm=webp&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 1200w
             "
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 1200px"
-            alt="خلفية سفر روسيا - مناظر طبيعية روسية خلابة"
+            alt="خلفية شهاب موسكو - مناظر طبيعية روسية خلابة"
             className="w-full h-full min-h-screen object-cover"
             loading="eager"
             priority={true}
@@ -114,7 +114,7 @@ const Hero: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto bg-gradient-to-r from-green-500 to-green-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-xl md:rounded-2xl font-bold text-base md:text-lg hover:from-green-600 hover:to-green-700 transform hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl"
-                aria-label="احجز رحلتك الآن عبر واتساب - سفر روسيا"
+                aria-label="احجز رحلتك الآن عبر واتساب - شهاب موسكو"
               >
                 احجز رحلتك الآن عبر واتساب
               </a>

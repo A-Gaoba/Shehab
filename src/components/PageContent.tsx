@@ -17,11 +17,19 @@ interface PageContentProps {
 const PageContent: React.FC<PageContentProps> = ({ currentPage, onPageChange }) => {
   // State for activity filtering
   const [selectedCategory, setSelectedCategory] = useState<string>('الكل');
+  // State for vehicle filtering
+  const [selectedVehicleType, setSelectedVehicleType] = useState<string>('الكل');
 
   // Get unique categories from activities data
   const activityCategories = useMemo(() => {
     const categories = ['الكل', ...new Set(activities.map(activity => activity.category))];
     return categories;
+  }, []);
+
+  // Get unique types from vehicles data
+  const vehicleTypes = useMemo(() => {
+    const types = ['الكل', ...new Set(vehicles.map(vehicle => vehicle.type))];
+    return types;
   }, []);
 
   // Filter activities based on selected category
@@ -31,6 +39,14 @@ const PageContent: React.FC<PageContentProps> = ({ currentPage, onPageChange }) 
     }
     return activities.filter(activity => activity.category === selectedCategory);
   }, [selectedCategory]);
+
+  // Filter vehicles based on selected type
+  const filteredVehicles = useMemo(() => {
+    if (selectedVehicleType === 'الكل') {
+      return vehicles;
+    }
+    return vehicles.filter(vehicle => vehicle.type === selectedVehicleType);
+  }, [selectedVehicleType]);
 
   // Handle category change with smooth scroll
   const handleCategoryChange = (category: string) => {
@@ -45,56 +61,70 @@ const PageContent: React.FC<PageContentProps> = ({ currentPage, onPageChange }) 
       });
     }
   };
+
+  // Handle vehicle type change with smooth scroll
+  const handleVehicleTypeChange = (type: string) => {
+    setSelectedVehicleType(type);
+    // Smooth scroll to vehicles section
+    const vehiclesSection = document.querySelector('[data-section="vehicles"]');
+    if (vehiclesSection) {
+      vehiclesSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest'
+      });
+    }
+  };
   // SEO data for different pages
   const getPageSEO = (page: string) => {
     switch (page) {
       case 'packages':
         return {
-          title: "باقات السفر إلى روسيا - أفضل العروض السياحية | سفر روسيا",
+          title: "باقات السفر إلى روسيا - أفضل العروض السياحية | شهاب موسكو",
           description: "اختر من أفضل باقات السفر إلى روسيا. جولات موسكو، عطلات سوتشي، ورحلات سانت بطرسبرغ مع مرشدين عرب. احجز الآن بأفضل الأسعار.",
-          keywords: "باقات سفر روسيا, جولات موسكو, رحلات سوتشي, سانت بطرسبرغ, عروض سياحية روسيا"
+          keywords: "باقات شهاب موسكو, جولات موسكو, رحلات سوتشي, سانت بطرسبرغ, عروض سياحية روسيا"
         };
       case 'hotels':
         return {
-          title: "أفضل الفنادق في روسيا - حجز فنادق موسكو وسوتشي | سفر روسيا",
+          title: "أفضل الفنادق في روسيا - حجز فنادق موسكو وسوتشي | شهاب موسكو",
           description: "احجز أفضل الفنادق في موسكو وسوتشي وسانت بطرسبرغ. فنادق 5 نجوم بأسعار مميزة مع خدمة حجز احترافية.",
           keywords: "فنادق موسكو, فنادق سوتشي, فنادق سانت بطرسبرغ, حجز فنادق روسيا, فنادق فاخرة روسيا"
         };
       case 'activities':
         return {
-          title: "أنشطة وجولات سياحية في روسيا - تجارب لا تُنسى | سفر روسيا",
+          title: "أنشطة وجولات سياحية في روسيا - تجارب لا تُنسى | شهاب موسكو",
           description: "اكتشف أفضل الأنشطة السياحية في روسيا. جولات الكرملين، رحلات الهاسكي، عروض الباليه، والمزيد من التجارب المميزة.",
           keywords: "أنشطة روسيا, جولات سياحية موسكو, الكرملين, الهاسكي, الباليه الروسي, أنشطة سوتشي"
         };
       case 'transportation':
         return {
-          title: "خدمات النقل في روسيا - سيارات ومرسيدس فاخرة | سفر روسيا",
+          title: "خدمات النقل في روسيا - سيارات ومرسيدس فاخرة | شهاب موسكو",
           description: "خدمات نقل فاخرة في روسيا. سيارات مرسيدس، حافلات مريحة، وخدمة نقل VIP مع سائقين محترفين.",
           keywords: "نقل روسيا, سيارات مرسيدس روسيا, خدمة نقل VIP, سائق عربي روسيا"
         };
       case 'services':
         return {
-          title: "خدماتنا المتميزة - سفر روسيا | تأشيرات، طيران، فنادق، وأكثر",
+          title: "خدماتنا المتميزة - شهاب موسكو | تأشيرات، طيران، فنادق، وأكثر",
           description: "اكتشف مجموعة شاملة من خدمات السفر إلى روسيا. تأشيرات، حجوزات طيران، فنادق، نقل، تأمين، وجولات سياحية مع خدمة عملاء متميزة.",
-          keywords: "خدمات سفر روسيا, تأشيرات روسيا, حجز طيران, فنادق روسيا, نقل مطار, تأمين سفر, جولات سياحية, ترجمة وثائق"
+          keywords: "خدمات شهاب موسكو, تأشيرات روسيا, حجز طيران, فنادق روسيا, نقل مطار, تأمين سفر, جولات سياحية, ترجمة وثائق"
         };
       case 'testimonials':
         return {
-          title: "تقييمات وآراء العملاء - سفر روسيا | شهادات العملاء الحقيقية",
-          description: "اقرأ تقييمات وآراء عملائنا الحقيقية عن تجاربهم مع شركة سفر روسيا. شهادات موثقة من عملاء من جميع أنحاء الوطن العربي.",
-          keywords: "تقييمات سفر روسيا, آراء العملاء, شهادات العملاء, تجارب السفر, مراجعات العملاء, تقييم الخدمة"
+          title: "تقييمات وآراء العملاء - شهاب موسكو | شهادات العملاء الحقيقية",
+          description: "اقرأ تقييمات وآراء عملائنا الحقيقية عن تجاربهم مع شركة شهاب موسكو. شهادات موثقة من عملاء من جميع أنحاء الوطن العربي.",
+          keywords: "تقييمات شهاب موسكو, آراء العملاء, شهادات العملاء, تجارب السفر, مراجعات العملاء, تقييم الخدمة"
         };
       case 'contact':
         return {
-          title: "تواصل معنا - سفر روسيا | أفضل شركة سياحة روسية للعرب",
+          title: "تواصل معنا - شهاب موسكو | أفضل شركة سياحة روسية للعرب",
           description: "تواصل مع أفضل شركة سياحة روسية للعرب. خدمة عملاء 24/7، مرشدين عرب، وخبرة أكثر من 10 سنوات في السياحة الروسية.",
-          keywords: "تواصل سفر روسيا, شركة سياحة روسية, مرشد عربي روسيا, خدمة عملاء سياحة"
+          keywords: "تواصل شهاب موسكو, شركة سياحة روسية, مرشد عربي روسيا, خدمة عملاء سياحة"
         };
       default:
         return {
-          title: "سفر روسيا - أفضل شركة سياحة روسية للعرب | رحلات موسكو وسوتشي وسانت بطرسبرغ",
-          description: "أفضل شركة سياحة روسية للعرب. رحلات مميزة إلى موسكو وسوتشي وسانت بطرسبرغ مع مرشدين عرب محترفين. احجز رحلتك الآن بأفضل الأسعار وخدمة 5 نجوم.",
-          keywords: "سفر روسيا, سياحة روسيا, رحلات موسكو, سوتشي, سانت بطرسبرغ, سياحة عربية, مرشد عربي روسيا"
+          title: "شهاب موسكو - أفضل شركة سياحة روسية للعرب | رحلات موسكو وسوتشي وسانت بطرسبرغ",
+          description: "شهاب موسكو - أفضل شركة سياحة روسية للعرب. رحلات مميزة إلى موسكو وسوتشي وسانت بطرسبرغ مع مرشدين عرب محترفين. احجز رحلتك الآن بأفضل الأسعار وخدمة 5 نجوم.",
+          keywords: "شهاب موسكو, شهاب موسكو, سياحة روسيا, رحلات موسكو, سوتشي, سانت بطرسبرغ, سياحة عربية, مرشد عربي روسيا"
         };
     }
   };
@@ -105,7 +135,7 @@ const PageContent: React.FC<PageContentProps> = ({ currentPage, onPageChange }) 
         "@type": "ListItem",
         "position": 1,
         "name": "الرئيسية",
-        "item": "https://russia-travel.com/"
+        "item": "https://shehab-moscow.com/"
       },
       {
         "@type": "ListItem",
@@ -117,7 +147,7 @@ const PageContent: React.FC<PageContentProps> = ({ currentPage, onPageChange }) 
                 currentPage === 'services' ? 'الخدمات' :
                   currentPage === 'testimonials' ? 'آراء العملاء' :
                     currentPage === 'contact' ? 'تواصل معنا' : 'الرئيسية',
-        "item": `https://russia-travel.com/${currentPage}`
+        "item": `https://shehab-moscow.com/${currentPage}`
       }
     ]
   };
@@ -286,11 +316,16 @@ const PageContent: React.FC<PageContentProps> = ({ currentPage, onPageChange }) 
                   </div>
                 </div>
 
-                <div className="flex flex-wrap justify-center gap-3 mb-12">
-                  {['الكل', 'سيارة فاخرة', 'ميني فان', 'حافلة صغيرة', 'حافلة كبيرة'].map((type) => (
+                {/* Vehicle Type Filters */}
+                <div className="flex flex-wrap justify-center gap-3 mb-12" data-section="vehicles">
+                  {vehicleTypes.map((type) => (
                     <button
                       key={type}
-                      className="px-6 py-3 rounded-full bg-gray-800/80 backdrop-blur-sm text-gray-300 hover:bg-gray-700 hover:text-white transition-all duration-300 shadow-sm hover:shadow-md font-medium border border-gray-700"
+                      onClick={() => handleVehicleTypeChange(type)}
+                      className={`px-6 py-3 rounded-full backdrop-blur-sm transition-all duration-300 shadow-sm hover:shadow-md font-medium border ${selectedVehicleType === type
+                        ? 'bg-blue-600 text-white border-blue-500'
+                        : 'bg-gray-800/80 text-gray-300 hover:bg-gray-700 hover:text-white border-gray-700'
+                        }`}
                       aria-label={`فلترة المركبات حسب ${type}`}
                     >
                       {type}
@@ -298,10 +333,35 @@ const PageContent: React.FC<PageContentProps> = ({ currentPage, onPageChange }) 
                   ))}
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                  {vehicles.map((vehicle) => (
-                    <VehicleCard key={vehicle.id} vehicle={vehicle} />
-                  ))}
+                {/* Vehicle Count Display */}
+                <div className="text-center mb-8">
+                  <p className="text-gray-300 text-lg">
+                    {selectedVehicleType === 'الكل'
+                      ? `جميع المركبات (${filteredVehicles.length})`
+                      : `مركبات ${selectedVehicleType} (${filteredVehicles.length})`
+                    }
+                  </p>
+                </div>
+
+                {/* Vehicles Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 animate-fadeIn">
+                  {filteredVehicles.length > 0 ? (
+                    filteredVehicles.map((vehicle) => (
+                      <VehicleCard key={vehicle.id} vehicle={vehicle} />
+                    ))
+                  ) : (
+                    <div className="col-span-full text-center py-16">
+                      <div className="text-gray-400 text-6xl mb-4">🚗</div>
+                      <h3 className="text-2xl font-bold text-gray-300 mb-4">لا توجد مركبات</h3>
+                      <p className="text-gray-400 mb-8">لم نجد مركبات تطابق الفلتر المحدد</p>
+                      <button
+                        onClick={() => handleVehicleTypeChange('الكل')}
+                        className="bg-blue-600 text-white px-8 py-3 rounded-2xl font-bold text-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105"
+                      >
+                        عرض جميع المركبات
+                      </button>
+                    </div>
+                  )}
                 </div>
 
                 <div className="mt-16 bg-gray-800/60 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-gray-700">
@@ -407,7 +467,7 @@ const PageContent: React.FC<PageContentProps> = ({ currentPage, onPageChange }) 
                     آراء وتقييمات عملائنا
                   </h1>
                   <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-8">
-                    نفتخر بثقة عملائنا وتقييماتهم الإيجابية. اقرأ تجارب العملاء الحقيقية مع شركة سفر روسيا
+                    نفتخر بثقة عملائنا وتقييماتهم الإيجابية. اقرأ تجارب العملاء الحقيقية مع شركة شهاب موسكو
                   </p>
 
                   {/* Statistics */}

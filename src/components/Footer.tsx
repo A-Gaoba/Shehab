@@ -15,7 +15,7 @@ const Footer: React.FC<FooterProps> = ({ onPageChange }) => {
                 <span className="text-white font-bold text-lg">روسيا</span>
               </div>
               <div>
-                <h3 className="text-xl font-bold">سفر روسيا</h3>
+                <h3 className="text-xl font-bold">شهاب موسكو</h3>
                 <p className="text-gray-400 text-sm">أفضل شركة سياحة روسية للعرب</p>
               </div>
             </div>
@@ -62,7 +62,7 @@ const Footer: React.FC<FooterProps> = ({ onPageChange }) => {
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
           <p className="text-gray-400">
-            © 2024 سفر روسيا - أفضل شركة سياحة روسية للعرب. جميع الحقوق محفوظة.
+            © 2024 شهاب موسكو - أفضل شركة سياحة روسية للعرب. جميع الحقوق محفوظة.
           </p>
         </div>
       </div>
