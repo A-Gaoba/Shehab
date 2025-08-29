@@ -88,7 +88,7 @@ const LazyImage: React.FC<LazyImageProps> = ({
         width={width}
         height={height}
         decoding="async"
-        fetchPriority={priority ? 'high' : 'auto'}
+        fetchpriority={priority ? 'high' : 'auto'}
       />
 
       {isError && (

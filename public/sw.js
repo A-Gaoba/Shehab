@@ -4,11 +4,11 @@ const STATIC_CACHE_URLS = [
   "/",
   "/src/main.tsx",
   "/src/index.css",
-  "https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap",
+  "https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap",
 ];
 
 const IMAGE_CACHE_URLS = [
-  "https://images.unsplash.com/photo-1547448415-e9f5b28e570d?q=75&w=1200&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1547448415-e9f5b28e570d?q=60&w=800&auto=format&fit=crop&fm=webp&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
 ];
 
 // Install event - cache static assets
@@ -43,8 +43,13 @@ self.addEventListener("activate", (event) => {
 
 // Fetch event - serve from cache with network fallback
 self.addEventListener("fetch", (event) => {
-  // Skip non-GET requests
-  if (event.request.method !== "GET") {
+  // Skip non-GET requests and unsupported schemes
+  if (
+    event.request.method !== "GET" ||
+    event.request.url.startsWith("chrome-extension://") ||
+    event.request.url.startsWith("moz-extension://") ||
+    event.request.url.startsWith("ms-browser-extension://")
+  ) {
     return;
   }
 
@@ -83,7 +88,8 @@ self.addEventListener("fetch", (event) => {
         }
         return response;
       })
-      .catch(() => {
+      .catch((error) => {
+        console.log("SW: Network request failed, trying cache:", error);
         // Fallback to cache if network fails
         return caches.match(event.request);
       })

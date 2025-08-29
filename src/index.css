@@ -49,9 +49,16 @@ img {
   aspect-ratio: attr(data-aspect-ratio);
 }
 
-/* Arabic font support */
+/* Arabic font support with fallback */
 * {
-  font-family: "Cairo", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Cairo", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Ensure font-display swap for performance */
+@font-face {
+  font-family: "Cairo";
+  font-display: swap;
 }
 
 /* RTL improvements */
@@ -299,6 +306,31 @@ html {
     font-size: 1.75rem;
     line-height: 1.3;
   }
+
+  /* Ensure hero image takes full mobile viewport height */
+  .min-h-screen {
+    min-height: 100vh;
+    min-height: 100dvh; /* Dynamic viewport height for mobile browsers */
+  }
+
+  /* Fix for mobile browsers with dynamic viewport */
+  .hero-mobile-fix {
+    height: 100vh;
+    height: 100dvh;
+  }
+
+  /* Ensure hero background image covers full mobile viewport */
+  .hero-mobile-fix .min-h-screen {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  /* Force image to take full viewport height on mobile */
+  .hero-mobile-fix img {
+    min-height: 100vh;
+    min-height: 100dvh;
+    object-fit: cover;
+  }
 }
 
 /* Focus styles for accessibility */
@@ -388,7 +420,7 @@ textarea:focus {
   .snowflake-simple,
   .snowflake-stellar,
   .snowflake-dendrite {
-    animation-duration: 10s !important;
+    animation-duration: 12s !important;
     animation-timing-function: linear !important;
   }
 
@@ -396,6 +428,12 @@ textarea:focus {
   .animate-float,
   .animate-float-delayed {
     animation: none !important;
+  }
+
+  /* Reduce snowfall complexity on mobile */
+  [data-snowflake] {
+    animation-iteration-count: 1 !important;
+    transform: translateZ(0) !important;
   }
 }
 

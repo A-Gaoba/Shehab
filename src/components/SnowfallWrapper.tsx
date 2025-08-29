@@ -80,9 +80,9 @@ const SnowfallWrapper: React.FC<SnowfallWrapperProps> = ({
     if (!enabled || isReducedMotion) return [];
 
     const intensityMap = {
-      light: { count: performanceMode ? 30 : 60, maxSize: 4, maxSpeed: 3 },
-      medium: { count: performanceMode ? 50 : 100, maxSize: 6, maxSpeed: 4 },
-      heavy: { count: performanceMode ? 80 : 150, maxSize: 8, maxSpeed: 5 },
+      light: { count: performanceMode ? 15 : 25, maxSize: 4, maxSpeed: 3 },
+      medium: { count: performanceMode ? 25 : 40, maxSize: 6, maxSpeed: 4 },
+      heavy: { count: performanceMode ? 40 : 60, maxSize: 8, maxSpeed: 5 },
     };
 
     const config = intensityMap[intensity];
@@ -157,7 +157,7 @@ const SnowfallWrapper: React.FC<SnowfallWrapperProps> = ({
         setWindStrength(Math.sin(Date.now() * 0.002) * 1);
         setTurbulence(0);
       }
-    }, performanceMode ? 300 : 150);
+    }, performanceMode ? 500 : 250);
 
     document.addEventListener('visibilitychange', handleVisibilityChange);
     document.addEventListener('mousemove', handleMouseMove, { passive: true });
@@ -235,34 +235,23 @@ const SnowfallWrapper: React.FC<SnowfallWrapperProps> = ({
         })}
 
         {/* Dynamic CSS animations for each snowflake */}
-        <style dangerouslySetInnerHTML={{
-          __html: `
-            ${snowflakes.map((flake) => `
-              @keyframes snowfall-${flake.id} {
+        {snowflakes.length > 0 && (
+          <style dangerouslySetInnerHTML={{
+            __html: `
+              ${snowflakes.map((flake) => `
+                @keyframes snowfall-${flake.id} {
                 0% {
-                  transform: translateY(-20vh) translateX(${flake.sway * -10}px) rotate(0deg) scale(${0.8 + flake.mass * 0.3});
+                  transform: translateY(-10vh) translateX(0px) rotate(0deg);
                   opacity: 0;
                 }
-                5% {
+                10% {
                   opacity: ${flake.opacity};
                 }
-                25% {
-                  transform: translateY(25vh) translateX(${flake.sway * 25}px) rotate(${90 * flake.swaySpeed}deg) scale(${1 + flake.mass * 0.2});
-                  opacity: ${flake.opacity};
-                }
-                50% {
-                  transform: translateY(50vh) translateX(${flake.sway * 50}px) rotate(${180 * flake.swaySpeed}deg) scale(${0.9 + flake.mass * 0.3});
-                  opacity: ${flake.opacity * 0.9};
-                }
-                75% {
-                  transform: translateY(75vh) translateX(${flake.sway * 75}px) rotate(${270 * flake.swaySpeed}deg) scale(${1.1 + flake.mass * 0.1});
-                  opacity: ${flake.opacity * 0.7};
-                }
-                95% {
-                  opacity: ${flake.opacity * 0.3};
+                90% {
+                  opacity: ${flake.opacity * 0.5};
                 }
                 100% {
-                  transform: translateY(120vh) translateX(${flake.sway * 100}px) rotate(${360 * flake.swaySpeed}deg) scale(${0.6 + flake.mass * 0.2});
+                  transform: translateY(110vh) translateX(${flake.sway * 50}px) rotate(${180 * flake.swaySpeed}deg);
                   opacity: 0;
                 }
               }
@@ -273,8 +262,9 @@ const SnowfallWrapper: React.FC<SnowfallWrapperProps> = ({
                 animation: none !important;
               }
             }
-          `
-        }} />
+                      `
+          }} />
+        )}
       </div>
     );
   }, [enabled, isVisible, isReducedMotion, snowflakes]);

@@ -38,24 +38,24 @@ const Hero: React.FC = () => {
 
       <StructuredData type="organization" data={heroStructuredData} />
 
-      <div className="relative min-h-screen overflow-hidden">
+      <div className="relative min-h-screen hero-mobile-fix overflow-hidden">
         {/* Background Image */}
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 w-full h-full">
           <LazyImage
-            src="https://images.unsplash.com/photo-1547448415-e9f5b28e570d?q=75&w=1200&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            src="https://images.unsplash.com/photo-1547448415-e9f5b28e570d?q=60&w=800&auto=format&fit=crop&fm=webp&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             srcSet="
-              https://images.unsplash.com/photo-1547448415-e9f5b28e570d?q=60&w=640&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 640w,
-              https://images.unsplash.com/photo-1547448415-e9f5b28e570d?q=70&w=1024&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 1024w,
-              https://images.unsplash.com/photo-1547448415-e9f5b28e570d?q=75&w=1200&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 1200w,
-              https://images.unsplash.com/photo-1547448415-e9f5b28e570d?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 1920w
+              https://images.unsplash.com/photo-1547448415-e9f5b28e570d?q=50&w=480&auto=format&fit=crop&fm=webp&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 480w,
+              https://images.unsplash.com/photo-1547448415-e9f5b28e570d?q=55&w=768&auto=format&fit=crop&fm=webp&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 768w,
+              https://images.unsplash.com/photo-1547448415-e9f5b28e570d?q=60&w=1024&auto=format&fit=crop&fm=webp&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 1024w,
+              https://images.unsplash.com/photo-1547448415-e9f5b28e570d?q=65&w=1200&auto=format&fit=crop&fm=webp&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 1200w
             "
-            sizes="100vw"
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 1200px"
             alt="خلفية سفر روسيا - مناظر طبيعية روسية خلابة"
-            className="w-full h-full object-cover"
+            className="w-full h-full min-h-screen object-cover"
             loading="eager"
             priority={true}
-            width={1200}
-            height={800}
+            width={800}
+            height={600}
           />
           {/* Dark overlay for better text readability */}
           <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-gray-900/85 to-black/90"></div>
@@ -67,7 +67,7 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Content */}
-        <div className="container mx-auto px-3 sm:px-4 relative z-10 flex items-center justify-center min-h-screen">
+        <div className="container mx-auto px-3 sm:px-4 relative z-10 flex items-center justify-center min-h-screen hero-mobile-fix">
           <div className="max-w-4xl mx-auto text-center text-white">
             {/* Main Heading */}
             <header className="mb-6 md:mb-8 space-y-3 md:space-y-4">

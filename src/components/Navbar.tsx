@@ -39,8 +39,8 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, onPageChange }) => {
               <button
                 key={item.id}
                 onClick={() => onPageChange(item.id)}
-                className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 ${currentPage === item.id
-                  ? 'bg-red-600 text-white shadow-lg'
+                className={`px-4 py-2 rounded-lg font-medium transition-colors duration-200 ${currentPage === item.id
+                  ? 'bg-red-600 text-white'
                   : 'text-gray-300 hover:text-red-400 hover:bg-gray-800'
                   }`}
               >
