@@ -28,7 +28,7 @@ const Contact: React.FC = () => {
                   <p className="text-lg text-gray-400 leading-relaxed">
                     هدفنا أن نجعل تجربتك لا تُنسى مع أفضل الأسعار والخدمات.
                   </p>
-                </div>              
+                </div>
               </div>
             </div>
           </div>
