@@ -19,7 +19,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, onPageChange }) => {
   ];
 
   return (
-    <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-lg z-50 border-b border-gray-100">
+    <nav className="fixed top-0 w-full bg-gray-900/95 backdrop-blur-sm shadow-lg z-50 border-b border-gray-700">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -28,8 +28,8 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, onPageChange }) => {
               <span className="text-white font-bold text-xl">روسيا</span>
             </div>
             <div className="text-right">
-              <h1 className="text-xl font-bold text-gray-800">سفر روسيا</h1>
-              <p className="text-xs text-gray-600">رحلات مميزة للسياح العرب</p>
+              <h1 className="text-xl font-bold text-white">سفر روسيا</h1>
+              <p className="text-xs text-gray-300">رحلات مميزة للسياح العرب</p>
             </div>
           </div>
 
@@ -39,11 +39,10 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, onPageChange }) => {
               <button
                 key={item.id}
                 onClick={() => onPageChange(item.id)}
-                className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
-                  currentPage === item.id
-                    ? 'bg-red-600 text-white shadow-lg'
-                    : 'text-gray-700 hover:text-red-600 hover:bg-red-50'
-                }`}
+                className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 ${currentPage === item.id
+                  ? 'bg-red-600 text-white shadow-lg'
+                  : 'text-gray-300 hover:text-red-400 hover:bg-gray-800'
+                  }`}
               >
                 {item.label}
               </button>
@@ -63,7 +62,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, onPageChange }) => {
             </a>
             <a
               href="tel:+79174828474"
-              className="flex items-center space-x-2 rtl:space-x-reverse bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+              className="flex items-center space-x-2 rtl:space-x-reverse bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors"
             >
               <Phone size={18} />
               <span>اتصل</span>
@@ -73,7 +72,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, onPageChange }) => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100"
+            className="md:hidden p-2 rounded-lg text-gray-300 hover:bg-gray-800"
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -81,7 +80,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, onPageChange }) => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-100">
+          <div className="md:hidden py-4 border-t border-gray-700">
             <div className="space-y-2">
               {navItems.map((item) => (
                 <button
@@ -90,16 +89,15 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, onPageChange }) => {
                     onPageChange(item.id);
                     setIsMenuOpen(false);
                   }}
-                  className={`w-full text-right px-4 py-3 rounded-lg font-medium transition-all duration-300 ${
-                    currentPage === item.id
-                      ? 'bg-red-600 text-white'
-                      : 'text-gray-700 hover:bg-red-50 hover:text-red-600'
-                  }`}
+                  className={`w-full text-right px-4 py-3 rounded-lg font-medium transition-all duration-300 ${currentPage === item.id
+                    ? 'bg-red-600 text-white'
+                    : 'text-gray-300 hover:bg-gray-800 hover:text-red-400'
+                    }`}
                 >
                   {item.label}
                 </button>
               ))}
-              <div className="flex flex-col space-y-2 mt-4 pt-4 border-t border-gray-100">
+              <div className="flex flex-col space-y-2 mt-4 pt-4 border-t border-gray-700">
                 <a
                   href="https://wa.me/79174828474"
                   target="_blank"
@@ -111,7 +109,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, onPageChange }) => {
                 </a>
                 <a
                   href="tel:+79174828474"
-                  className="flex items-center justify-center space-x-2 rtl:space-x-reverse bg-blue-600 text-white px-4 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+                  className="flex items-center justify-center space-x-2 rtl:space-x-reverse bg-gray-700 text-white px-4 py-3 rounded-lg hover:bg-gray-600 transition-colors"
                 >
                   <Phone size={18} />
                   <span>اتصل بنا الآن</span>

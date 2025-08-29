@@ -8,7 +8,7 @@ interface PackageCardProps {
 
 const PackageCard: React.FC<PackageCardProps> = ({ package: pkg }) => {
   return (
-    <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+    <div className="bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group border border-gray-700">
       {/* Image */}
       <div className="relative h-64 overflow-hidden">
         <img
@@ -33,7 +33,7 @@ const PackageCard: React.FC<PackageCardProps> = ({ package: pkg }) => {
       {/* Content */}
       <div className="p-6">
         <div className="flex items-center justify-between mb-3">
-          <h3 className="text-xl font-bold text-gray-800">{pkg.name}</h3>
+          <h3 className="text-xl font-bold text-white">{pkg.name}</h3>
           <div className="flex items-center space-x-1 rtl:space-x-reverse">
             <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
             <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
@@ -43,12 +43,12 @@ const PackageCard: React.FC<PackageCardProps> = ({ package: pkg }) => {
           </div>
         </div>
 
-        <div className="flex items-center space-x-2 rtl:space-x-reverse text-gray-600 mb-4">
+        <div className="flex items-center space-x-2 rtl:space-x-reverse text-gray-300 mb-4">
           <Clock size={16} />
           <span>{pkg.duration}</span>
         </div>
 
-        <p className="text-gray-600 mb-4 leading-relaxed">{pkg.description}</p>
+        <p className="text-gray-300 mb-4 leading-relaxed">{pkg.description}</p>
 
         {/* Highlights */}
         <div className="mb-6">

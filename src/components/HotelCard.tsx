@@ -15,7 +15,7 @@ const HotelCard: React.FC<HotelCardProps> = ({ hotel }) => {
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+    <div className="bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group border border-gray-700">
       {/* Image */}
       <div className="relative h-56 overflow-hidden">
         <img
@@ -35,7 +35,7 @@ const HotelCard: React.FC<HotelCardProps> = ({ hotel }) => {
       {/* Content */}
       <div className="p-6">
         <div className="flex items-center justify-between mb-3">
-          <h3 className="text-xl font-bold text-gray-800">{hotel.name}</h3>
+          <h3 className="text-xl font-bold text-white">{hotel.name}</h3>
           <div className="flex items-center space-x-1 rtl:space-x-reverse">
             {[...Array(hotel.rating)].map((_, index) => (
               <Star key={index} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
@@ -43,11 +43,11 @@ const HotelCard: React.FC<HotelCardProps> = ({ hotel }) => {
           </div>
         </div>
 
-        <p className="text-gray-600 mb-4 leading-relaxed">{hotel.description}</p>
+        <p className="text-gray-300 mb-4 leading-relaxed">{hotel.description}</p>
 
         {/* Room Types */}
         <div className="mb-4">
-          <h4 className="font-semibold text-gray-800 mb-2">أنواع الغرف:</h4>
+          <h4 className="font-semibold text-white mb-2">أنواع الغرف:</h4>
           <div className="flex flex-wrap gap-2">
             {hotel.roomTypes.map((room, index) => (
               <span
@@ -62,10 +62,10 @@ const HotelCard: React.FC<HotelCardProps> = ({ hotel }) => {
 
         {/* Amenities */}
         <div className="mb-6">
-          <h4 className="font-semibold text-gray-800 mb-2">المرافق:</h4>
+          <h4 className="font-semibold text-white mb-2">المرافق:</h4>
           <div className="grid grid-cols-2 gap-2">
             {hotel.amenities.map((amenity, index) => (
-              <div key={index} className="flex items-center space-x-2 rtl:space-x-reverse text-sm text-gray-600">
+              <div key={index} className="flex items-center space-x-2 rtl:space-x-reverse text-sm text-gray-300">
                 <div className="text-blue-600">
                   {getAmenityIcon(amenity)}
                 </div>

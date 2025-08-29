@@ -17,7 +17,7 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activity }) => {
       case 'ترفيه': return 'bg-pink-100 text-pink-800';
       case 'إقامة': return 'bg-indigo-100 text-indigo-800';
       case 'معالم': return 'bg-yellow-100 text-yellow-800';
-      default: return 'bg-gray-100 text-gray-800';
+      default: return 'bg-gray-100 text-white';
     }
   };
 
@@ -26,12 +26,12 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activity }) => {
       case 'سهل': return <Star className="w-4 h-4 text-green-600" />;
       case 'متوسط': return <Zap className="w-4 h-4 text-yellow-600" />;
       case 'صعب': return <Zap className="w-4 h-4 text-red-600" />;
-      default: return <Star className="w-4 h-4 text-gray-600" />;
+      default: return <Star className="w-4 h-4 text-gray-300" />;
     }
   };
 
   return (
-    <div className="group relative bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden transform hover:-translate-y-2">
+    <div className="group relative bg-gray-800 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden transform hover:-translate-y-2">
       {/* Image Container */}
       <div className="relative h-64 overflow-hidden">
         <img
@@ -39,10 +39,10 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activity }) => {
           alt={activity.name}
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
         />
-        
+
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
-        
+
         {/* Category Badge */}
         <div className="absolute top-4 right-4">
           <span className={`px-3 py-1 rounded-full text-xs font-bold ${getCategoryColor(activity.category)} backdrop-blur-sm`}>
@@ -68,7 +68,7 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activity }) => {
 
       {/* Content */}
       <div className="p-6">
-        <p className="text-gray-600 leading-relaxed mb-6 line-clamp-3">
+        <p className="text-gray-300 leading-relaxed mb-6 line-clamp-3">
           {activity.description}
         </p>
 
@@ -81,7 +81,7 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activity }) => {
         >
           <span className="flex items-center justify-center space-x-2 rtl:space-x-reverse">
             <span>احجز الآن</span>
-            <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+            <div className="w-2 h-2 bg-gray-800 rounded-full animate-pulse"></div>
           </span>
         </a>
       </div>

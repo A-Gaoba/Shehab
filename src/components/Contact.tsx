@@ -3,13 +3,13 @@ import { MapPin, Phone, Mail, MessageCircle, Clock, Globe } from 'lucide-react';
 
 const Contact: React.FC = () => {
   return (
-    <div className="bg-gray-50 py-16">
+    <div className="bg-gray-900 py-16">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">تواصل معنا</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <h2 className="text-4xl font-bold text-white mb-4">تواصل معنا</h2>
+            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
               نحن هنا لمساعدتك في تخطيط رحلتك المثالية إلى روسيا
             </p>
           </div>
@@ -17,18 +17,18 @@ const Contact: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Information */}
             <div className="space-y-8">
-              <div className="bg-white rounded-2xl p-8 shadow-lg">
-                <h3 className="text-2xl font-bold text-gray-800 mb-6">معلومات التواصل</h3>
-                
+              <div className="bg-gray-800 rounded-2xl p-8 shadow-lg">
+                <h3 className="text-2xl font-bold text-white mb-6">معلومات التواصل</h3>
+
                 <div className="space-y-6">
                   <div className="flex items-center space-x-4 rtl:space-x-reverse">
                     <div className="bg-green-100 p-3 rounded-full">
                       <MessageCircle className="w-6 h-6 text-green-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-800">واتساب (الأسرع)</h4>
-                      <a 
-                        href="https://wa.me/79174828474" 
+                      <h4 className="font-semibold text-white">واتساب (الأسرع)</h4>
+                      <a
+                        href="https://wa.me/79174828474"
                         className="text-green-600 hover:text-green-700 transition-colors"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -43,9 +43,9 @@ const Contact: React.FC = () => {
                       <Phone className="w-6 h-6 text-blue-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-800">هاتف</h4>
-                      <a 
-                        href="tel:+79174828474" 
+                      <h4 className="font-semibold text-white">هاتف</h4>
+                      <a
+                        href="tel:+79174828474"
                         className="text-blue-600 hover:text-blue-700 transition-colors"
                       >
                         +7 917 482 8474
@@ -58,9 +58,9 @@ const Contact: React.FC = () => {
                       <Mail className="w-6 h-6 text-red-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-800">البريد الإلكتروني</h4>
-                      <a 
-                        href="mailto:info@russia-travel.com" 
+                      <h4 className="font-semibold text-white">البريد الإلكتروني</h4>
+                      <a
+                        href="mailto:info@russia-travel.com"
                         className="text-red-600 hover:text-red-700 transition-colors"
                       >
                         info@russia-travel.com
@@ -73,8 +73,8 @@ const Contact: React.FC = () => {
                       <MapPin className="w-6 h-6 text-purple-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-800">العنوان</h4>
-                      <p className="text-gray-600">موسكو، روسيا الاتحادية</p>
+                      <h4 className="font-semibold text-white">العنوان</h4>
+                      <p className="text-gray-300">موسكو، روسيا الاتحادية</p>
                     </div>
                   </div>
 
@@ -83,8 +83,8 @@ const Contact: React.FC = () => {
                       <Clock className="w-6 h-6 text-yellow-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-800">أوقات العمل</h4>
-                      <p className="text-gray-600">يومياً من 9:00 ص إلى 9:00 م</p>
+                      <h4 className="font-semibold text-white">أوقات العمل</h4>
+                      <p className="text-gray-300">يومياً من 9:00 ص إلى 9:00 م</p>
                       <p className="text-sm text-gray-500">(بتوقيت موسكو)</p>
                     </div>
                   </div>
@@ -94,8 +94,8 @@ const Contact: React.FC = () => {
                       <Globe className="w-6 h-6 text-indigo-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-800">اللغات</h4>
-                      <p className="text-gray-600">العربية، الروسية، الإنجليزية</p>
+                      <h4 className="font-semibold text-white">اللغات</h4>
+                      <p className="text-gray-300">العربية، الروسية، الإنجليزية</p>
                     </div>
                   </div>
                 </div>
@@ -126,8 +126,8 @@ const Contact: React.FC = () => {
             </div>
 
             {/* Map */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">موقعنا</h3>
+            <div className="bg-gray-800 rounded-2xl p-8 shadow-lg">
+              <h3 className="text-2xl font-bold text-white mb-6">موقعنا</h3>
               <div className="aspect-w-16 aspect-h-12 rounded-xl overflow-hidden">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d143398.1342534212!2d37.43896444999999!3d55.755864499999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54afc73d4b0c9%3A0x3d44d6cc5757cf4c!2z2YXZiNiz2YPZiNmI2Iwg2LHZiNiz2YrYpw!5e0!3m2!1sar!2s!4v1234567890"
@@ -141,9 +141,9 @@ const Contact: React.FC = () => {
                   title="موقع مكتبنا في موسكو"
                 ></iframe>
               </div>
-              <div className="mt-6 p-4 bg-gray-50 rounded-xl">
-                <h4 className="font-semibold text-gray-800 mb-2">لماذا تختارنا؟</h4>
-                <ul className="space-y-2 text-sm text-gray-600">
+              <div className="mt-6 p-4 bg-gray-900 rounded-xl">
+                <h4 className="font-semibold text-white mb-2">لماذا تختارنا؟</h4>
+                <ul className="space-y-2 text-sm text-gray-300">
                   <li className="flex items-center space-x-2 rtl:space-x-reverse">
                     <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                     <span>فريق عربي متخصص في السياحة الروسية</span>
