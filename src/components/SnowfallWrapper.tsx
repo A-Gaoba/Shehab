@@ -80,9 +80,9 @@ const SnowfallWrapper: React.FC<SnowfallWrapperProps> = ({
     if (!enabled || isReducedMotion) return [];
 
     const intensityMap = {
-      light: { count: performanceMode ? 40 : 80, maxSize: 4, maxSpeed: 3 },
-      medium: { count: performanceMode ? 75 : 150, maxSize: 6, maxSpeed: 4 },
-      heavy: { count: performanceMode ? 150 : 300, maxSize: 8, maxSpeed: 5 },
+      light: { count: performanceMode ? 30 : 60, maxSize: 4, maxSpeed: 3 },
+      medium: { count: performanceMode ? 50 : 100, maxSize: 6, maxSpeed: 4 },
+      heavy: { count: performanceMode ? 80 : 150, maxSize: 8, maxSpeed: 5 },
     };
 
     const config = intensityMap[intensity];
@@ -157,7 +157,7 @@ const SnowfallWrapper: React.FC<SnowfallWrapperProps> = ({
         setWindStrength(Math.sin(Date.now() * 0.002) * 1);
         setTurbulence(0);
       }
-    }, performanceMode ? 200 : 100);
+    }, performanceMode ? 300 : 150);
 
     document.addEventListener('visibilitychange', handleVisibilityChange);
     document.addEventListener('mousemove', handleMouseMove, { passive: true });

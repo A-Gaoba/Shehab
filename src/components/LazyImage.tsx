@@ -8,6 +8,9 @@ interface LazyImageProps {
   width?: number;
   height?: number;
   loading?: 'lazy' | 'eager';
+  sizes?: string;
+  srcSet?: string;
+  priority?: boolean;
 }
 
 const LazyImage: React.FC<LazyImageProps> = ({
@@ -17,7 +20,10 @@ const LazyImage: React.FC<LazyImageProps> = ({
   placeholder = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik0yMCAyNkM5IDI2IDkgMTQgMjAgMTRTMzEgMjYgMjAgMjZaIiBmaWxsPSIjRDFENUREIi8+CjxwYXRoIGQ9Ik0yMCAyMkM5IDIyIDkgMTggMjAgMThTMzEgMjIgMjAgMjJaIiBmaWxsPSIjQjhCQ0M4Ii8+Cjwvc3ZnPgo=',
   width,
   height,
-  loading = 'lazy'
+  loading = 'lazy',
+  sizes,
+  srcSet,
+  priority = false
 }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -25,6 +31,12 @@ const LazyImage: React.FC<LazyImageProps> = ({
   const imgRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
+    // Skip intersection observer for priority images
+    if (priority || loading === 'eager') {
+      setIsInView(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -32,7 +44,7 @@ const LazyImage: React.FC<LazyImageProps> = ({
           observer.disconnect();
         }
       },
-      { threshold: 0.1, rootMargin: '50px' }
+      { threshold: 0.1, rootMargin: '100px' } // Increased root margin for better UX
     );
 
     if (imgRef.current) {
@@ -40,7 +52,7 @@ const LazyImage: React.FC<LazyImageProps> = ({
     }
 
     return () => observer.disconnect();
-  }, []);
+  }, [priority, loading]);
 
   const handleLoad = () => {
     setIsLoaded(true);
@@ -64,15 +76,19 @@ const LazyImage: React.FC<LazyImageProps> = ({
       <img
         ref={imgRef}
         src={isInView || loading === 'eager' ? src : placeholder}
+        srcSet={isInView || loading === 'eager' ? srcSet : undefined}
+        sizes={sizes}
         alt={alt}
         className={`${className} transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'
-          }`}
+          } ${width && height ? 'aspect-ratio-custom' : ''}`}
+        data-aspect-ratio={width && height ? `${width}/${height}` : undefined}
         onLoad={handleLoad}
         onError={handleError}
         loading={loading}
         width={width}
         height={height}
         decoding="async"
+        fetchPriority={priority ? 'high' : 'auto'}
       />
 
       {isError && (

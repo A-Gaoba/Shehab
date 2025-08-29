@@ -42,12 +42,20 @@ const Hero: React.FC = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <LazyImage
-            src="https://images.unsplash.com/photo-1547448415-e9f5b28e570d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            src="https://images.unsplash.com/photo-1547448415-e9f5b28e570d?q=75&w=1200&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            srcSet="
+              https://images.unsplash.com/photo-1547448415-e9f5b28e570d?q=60&w=640&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 640w,
+              https://images.unsplash.com/photo-1547448415-e9f5b28e570d?q=70&w=1024&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 1024w,
+              https://images.unsplash.com/photo-1547448415-e9f5b28e570d?q=75&w=1200&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 1200w,
+              https://images.unsplash.com/photo-1547448415-e9f5b28e570d?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 1920w
+            "
+            sizes="100vw"
             alt="خلفية سفر روسيا - مناظر طبيعية روسية خلابة"
             className="w-full h-full object-cover"
             loading="eager"
-            width={1170}
-            height={780}
+            priority={true}
+            width={1200}
+            height={800}
           />
           {/* Dark overlay for better text readability */}
           <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-gray-900/85 to-black/90"></div>
