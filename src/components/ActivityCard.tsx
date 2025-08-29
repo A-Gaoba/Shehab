@@ -1,5 +1,4 @@
 import React from 'react';
-import { Clock, Star, Zap } from 'lucide-react';
 import { Activity } from '../data/travelData';
 
 interface ActivityCardProps {
@@ -17,18 +16,15 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activity }) => {
       case 'ترفيه': return 'bg-pink-100 text-pink-800';
       case 'إقامة': return 'bg-indigo-100 text-indigo-800';
       case 'معالم': return 'bg-yellow-100 text-yellow-800';
-      default: return 'bg-gray-100 text-white';
+      case 'حيوانات': return 'bg-emerald-100 text-emerald-800';
+      case 'رياضة': return 'bg-cyan-100 text-cyan-800';
+      case 'رحلات': return 'bg-violet-100 text-violet-800';
+      case 'فن': return 'bg-rose-100 text-rose-800';
+      default: return 'bg-gray-100 text-gray-800';
     }
   };
 
-  const getDifficultyIcon = (difficulty: string) => {
-    switch (difficulty) {
-      case 'سهل': return <Star className="w-4 h-4 text-green-600" />;
-      case 'متوسط': return <Zap className="w-4 h-4 text-yellow-600" />;
-      case 'صعب': return <Zap className="w-4 h-4 text-red-600" />;
-      default: return <Star className="w-4 h-4 text-gray-300" />;
-    }
-  };
+
 
   return (
     <div className="group relative bg-gray-800 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden transform hover:-translate-y-2">
@@ -52,17 +48,7 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activity }) => {
 
         {/* Title Overlay */}
         <div className="absolute bottom-4 left-4 right-4">
-          <h3 className="text-white text-xl font-bold mb-2">{activity.name}</h3>
-          <div className="flex items-center space-x-3 rtl:space-x-reverse text-white/90">
-            <div className="flex items-center space-x-1 rtl:space-x-reverse">
-              <Clock className="w-4 h-4" />
-              <span className="text-sm">{activity.duration}</span>
-            </div>
-            <div className="flex items-center space-x-1 rtl:space-x-reverse">
-              {getDifficultyIcon(activity.difficulty)}
-              <span className="text-sm">{activity.difficulty}</span>
-            </div>
-          </div>
+          <h3 className="text-white text-xl font-bold">{activity.name}</h3>
         </div>
       </div>
 

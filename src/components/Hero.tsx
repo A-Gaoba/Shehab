@@ -58,7 +58,7 @@ const Hero: React.FC = () => {
             height={600}
           />
           {/* Dark overlay for better text readability */}
-          <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-gray-900/85 to-black/90"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-black/30 via-gray-900/35 to-black/30"></div>
         </div>
 
         {/* Background Pattern */}

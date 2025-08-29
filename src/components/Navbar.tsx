@@ -15,6 +15,8 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, onPageChange }) => {
     { id: 'hotels', label: 'الفنادق' },
     { id: 'activities', label: 'الأنشطة' },
     { id: 'transportation', label: 'النقل' },
+    { id: 'services', label: 'الخدمات' },
+    { id: 'testimonials', label: 'آراء العملاء' },
     { id: 'contact', label: 'تواصل معنا' }
   ];
 

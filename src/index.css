@@ -91,6 +91,17 @@ img {
   }
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Enhanced Snowfall Animations */
 @keyframes snowfall-light {
   0% {
@@ -195,6 +206,15 @@ img {
 
 .animate-float-delayed {
   animation: float-delayed 8s ease-in-out infinite;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Text shadow utility */
+.text-shadow-lg {
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* Smooth scrolling */

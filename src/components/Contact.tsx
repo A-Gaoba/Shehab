@@ -14,6 +14,25 @@ const Contact: React.FC = () => {
             </p>
           </div>
 
+          {/* Simple Friendly Section */}
+          <div className="mb-16">
+            <div className="rounded-3xl p-8 md:p-12 shadow-lg border border-gray-100">
+              <div className="text-center">
+                <div className="mb-8">
+                  <h3 className="text-3xl md:text-4xl font-bold  mb-6">
+                    نحن هنا من أجلك! 😊
+                  </h3>
+                  <p className="text-xl text-gray-300 mb-6 leading-relaxed">
+                    تواصل معنا لنساعدك في تحقيق رحلتك المثالية، سواء كانت عائلية، تعليمية أو مغامرة.
+                  </p>
+                  <p className="text-lg text-gray-400 leading-relaxed">
+                    هدفنا أن نجعل تجربتك لا تُنسى مع أفضل الأسعار والخدمات.
+                  </p>
+                </div>              
+              </div>
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Information */}
             <div className="space-y-8">

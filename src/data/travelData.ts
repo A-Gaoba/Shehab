@@ -38,10 +38,7 @@ export interface Activity {
   name: string;
   image: string;
   description: string;
-  price: string;
-  duration: string;
   category: string;
-  difficulty: string;
 }
 
 export interface Vehicle {
@@ -53,6 +50,22 @@ export interface Vehicle {
   features: string[];
   priceRange: string;
   type: string;
+}
+
+export interface Service {
+  id: string;
+  name: string;
+  image: string;
+  description: string;
+  features: string[];
+  category: string;
+  icon: string;
+}
+
+export interface Testimonial {
+  id: string;
+  image: string;
+  description: string;
 }
 
 export const travelPackages: Package[] = [
@@ -357,166 +370,153 @@ export const activities: Activity[] = [
     image:
       "https://images.unsplash.com/photo-1605568427561-40dd23c2acea?w=800&auto=format&fit=crop&q=60",
     description: "استمتع بتجربة التزلج على الثلج مع كلاب الهاسكي في موسكو.",
-    price: "120 دولار",
-    duration: "3 ساعات",
     category: "مغامرة",
-    difficulty: "متوسط",
   },
   {
     id: "2",
-    name: "دوريات الرنة",
+    name: "حديقه الغزلان",
     image:
-      "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&auto=format&fit=crop&q=60",
-    description: "جولة فريدة مع الرنة في الغابات الثلجية.",
-    price: "95 دولار",
-    duration: "2.5 ساعة",
+      "https://images.unsplash.com/photo-1615190623796-5cb582fa4182?w=800&auto=format&fit=crop&q=60",
+    description:
+      "قم بزيارة حديقة الغزلان واستمتع بمشاهدة الحيوانات في أجواء طبيعية هادئة.",
     category: "طبيعة",
-    difficulty: "سهل",
   },
   {
     id: "3",
     name: "الأكواخ الريفية",
     image:
-      "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&auto=format&fit=crop&q=60",
-    description: "استمتع بالإقامة في أكواخ ريفية جميلة وسط الطبيعة الخلابة.",
-    price: "200 دولار",
-    duration: "ليلة واحدة",
+      "https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=800&auto=format&fit=crop&q=60",
+    description:
+      "استرخِ في الأكواخ الريفية واستمتع بأجواء هادئة بعيداً عن صخب المدينة.",
     category: "إقامة",
-    difficulty: "سهل",
   },
   {
     id: "4",
     name: "الهليكوبتر",
     image:
-      "https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=800&auto=format&fit=crop&q=60",
-    description: "جولة جوية مدهشة فوق مناظر موسكو الخلابة بواسطة الهليكوبتر.",
-    price: "350 دولار",
-    duration: "45 دقيقة",
+      "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&auto=format&fit=crop&q=60",
+    description: "جولة مثيرة فوق موسكو بمروحية لرؤية المناظر من السماء.",
     category: "مغامرة",
-    difficulty: "سهل",
   },
   {
     id: "5",
-    name: "المعسكر الروسي",
+    name: "المنطاد",
     image:
-      "https://images.unsplash.com/photo-1504851149312-7a075b496cc7?w=800&auto=format&fit=crop&q=60",
-    description:
-      "انضم إلى معسكر روسي تقليدي واستمتع بالأنشطة الثقافية والرياضية.",
-    price: "180 دولار",
-    duration: "يوم كامل",
-    category: "ثقافة",
-    difficulty: "متوسط",
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800&auto=format&fit=crop&q=60",
+    description: "رحلة بالمنطاد تمنحك مشهداً بانورامياً مذهلاً للمدينة والريف.",
+    category: "مغامرة",
   },
   {
     id: "6",
-    name: "الدب البني",
+    name: "المعسكر الروسي",
     image:
-      "https://images.unsplash.com/photo-1446329813274-7c9036bd9a1f?w=800&auto=format&fit=crop&q=60",
-    description:
-      "تعرف على الدببة في بيئتها الطبيعية واستمتع بمشاهدة هذه الحيوانات الرائعة.",
-    price: "140 دولار",
-    duration: "4 ساعات",
-    category: "طبيعة",
-    difficulty: "متوسط",
+      "https://images.unsplash.com/photo-1590080875637-12b37e0f62a3?w=800&auto=format&fit=crop&q=60",
+    description: "تجربة فريدة للتعرف على الحياة في المعسكر الروسي التقليدي.",
+    category: "ثقافة",
   },
   {
     id: "7",
-    name: "الأسواق التقليدية",
+    name: "الدب توم",
     image:
-      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&auto=format&fit=crop&q=60",
-    description: "استمتع بتجربة تسوق فريدة في أسواق موسكو التقليدية.",
-    price: "45 دولار",
-    duration: "2 ساعة",
-    category: "تسوق",
-    difficulty: "سهل",
+      "https://images.unsplash.com/photo-1601637152120-50768d4933c9?w=800&auto=format&fit=crop&q=60",
+    description: "تعرف على الدب الروسي الشهير توم في مغامرة ممتعة.",
+    category: "حيوانات",
   },
   {
     id: "8",
-    name: "الشورخ الروسي",
+    name: "ركوب الخيل",
     image:
-      "https://images.unsplash.com/photo-1547592180-85f173990554?w=800&auto=format&fit=crop&q=60",
-    description: "استمتع بتجربة تناول الشورخ الروسي التقليدي.",
-    price: "35 دولار",
-    duration: "1.5 ساعة",
-    category: "طعام",
-    difficulty: "سهل",
+      "https://images.unsplash.com/photo-1502508744502-c4b998aaed1c?w=800&auto=format&fit=crop&q=60",
+    description: "جولات ممتعة على ظهور الخيل وسط الطبيعة الروسية.",
+    category: "مغامرة",
   },
   {
     id: "9",
-    name: "الحرف اليدوية",
+    name: "الدريفت",
     image:
-      "https://images.unsplash.com/photo-1452860606245-08befc0ff44b?w=800&auto=format&fit=crop&q=60",
-    description: "استكشف المشروعات المحلية واستمتع بالمنتجات اليدوية.",
-    price: "60 دولار",
-    duration: "2.5 ساعة",
-    category: "ثقافة",
-    difficulty: "سهل",
+      "https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=800&auto=format&fit=crop&q=60",
+    description: "تجربة مليئة بالإثارة مع سباقات ودريفت السيارات.",
+    category: "رياضة",
   },
   {
     id: "10",
-    name: "عروض الباليه",
+    name: "الكروز",
     image:
-      "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800&auto=format&fit=crop&q=60",
-    description: "استمتع بمشاهدة عروض الباليه الكلاسيكية في موسكو.",
-    price: "85 دولار",
-    duration: "2 ساعة",
-    category: "ثقافة",
-    difficulty: "سهل",
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&auto=format&fit=crop&q=60",
+    description: "رحلة بحرية على متن الكروز عبر نهر موسكو.",
+    category: "رحلات",
   },
   {
     id: "11",
-    name: "الزيبلاين",
+    name: "السيرك",
     image:
-      "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=800&auto=format&fit=crop&q=60",
-    description: "تجربة مثيرة عبر الزيبلاين فوق الغابات الخلابة.",
-    price: "75 دولار",
-    duration: "1 ساعة",
-    category: "مغامرة",
-    difficulty: "متوسط",
+      "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=800&auto=format&fit=crop&q=60",
+    description: "استمتع بمشاهدة عروض السيرك الروسية التقليدية.",
+    category: "ترفيه",
   },
   {
     id: "12",
-    name: "برج التلفزيون",
+    name: "التلفريك",
     image:
-      "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=800&auto=format&fit=crop&q=60",
-    description: "استمتع بإطلالة بانورامية على موسكو من برج التلفزيون.",
-    price: "25 دولار",
-    duration: "1 ساعة",
-    category: "معالم",
-    difficulty: "سهل",
+      "https://images.unsplash.com/photo-1600871824170-c93f26d7c0e2?w=800&auto=format&fit=crop&q=60",
+    description: "جولة تلفريك تمنحك إطلالة رائعة على موسكو.",
+    category: "مغامرة",
   },
   {
     id: "13",
-    name: "عرض الدلافين",
+    name: "عروض الباليه",
     image:
-      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&auto=format&fit=crop&q=60",
-    description: "استمتع بمشاهدة عروض الدلافين المدهشة.",
-    price: "55 دولار",
-    duration: "1.5 ساعة",
-    category: "ترفيه",
-    difficulty: "سهل",
+      "https://images.unsplash.com/photo-1529973565456-c1ed3d6f3d6f?w=800&auto=format&fit=crop&q=60",
+    description: "شاهد روائع عروض الباليه الروسية في أجواء مميزة.",
+    category: "فن",
   },
   {
     id: "14",
-    name: "البحيرة المجمدة",
+    name: "الزيبلاين",
     image:
-      "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&auto=format&fit=crop&q=60",
-    description: "استكشف البحيرة المجمدة واستمتع بالمناظر الطبيعية الخلابة.",
-    price: "90 دولار",
-    duration: "3 ساعات",
-    category: "طبيعة",
-    difficulty: "متوسط",
+      "https://images.unsplash.com/photo-1504215680853-026ed2a45def?w=800&auto=format&fit=crop&q=60",
+    description: "مغامرة مشوقة عبر الزيبلاين بين الجبال والوديان.",
+    category: "مغامرة",
   },
   {
     id: "15",
-    name: "التسوق الفاخر",
+    name: "برج التلفزيون",
     image:
-      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&auto=format&fit=crop&q=60",
-    description: "استمتع بتجربة تسوق فريدة في أسواق موسكو الفاخرة.",
-    price: "40 دولار",
-    duration: "2 ساعة",
-    category: "تسوق",
-    difficulty: "سهل",
+      "https://images.unsplash.com/photo-1576076421037-7c72b0c1e8da?w=800&auto=format&fit=crop&q=60",
+    description: "زيارة برج التلفزيون والاستمتاع بالمشاهدة من الأعلى.",
+    category: "معالم",
+  },
+  {
+    id: "16",
+    name: "عرض الدلافين",
+    image:
+      "https://images.unsplash.com/photo-1614011207296-2074fa3437ea?w=800&auto=format&fit=crop&q=60",
+    description: "عروض ممتعة مع الدلافين في أجواء بحرية ساحرة.",
+    category: "ترفيه",
+  },
+  {
+    id: "17",
+    name: "الزحليقة",
+    image:
+      "https://images.unsplash.com/photo-1603112574217-bf2a76e6a1b6?w=800&auto=format&fit=crop&q=60",
+    description: "تجربة مثيرة على الزحليقة الجليدية في موسكو.",
+    category: "مغامرة",
+  },
+  {
+    id: "18",
+    name: "البقي العملاق",
+    image:
+      "https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=800&auto=format&fit=crop&q=60",
+    description: "جولة مليئة بالحماس باستخدام مركبة البقي العملاق.",
+    category: "مغامرة",
+  },
+  {
+    id: "19",
+    name: "عين موسكو",
+    image:
+      "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800&auto=format&fit=crop&q=60",
+    description: "مشاهدة بانورامية مذهلة لمدينة موسكو من عين موسكو.",
+    category: "معالم",
   },
 ];
 
@@ -605,5 +605,193 @@ export const vehicles: Vehicle[] = [
     ],
     priceRange: "180-250 دولار/يوم",
     type: "حافلة كبيرة",
+  },
+];
+
+export const services: Service[] = [
+  {
+    id: "1",
+    name: "إصدار التأشيرات الخاصة",
+    image:
+      "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&auto=format&fit=crop&q=60",
+    description:
+      "نساعدك في الحصول على التأشيرة الروسية بسهولة وسرعة مع ضمان الموافقة",
+    features: [
+      "استشارة مجانية",
+      "متابعة حتى الحصول على التأشيرة",
+      "ضمان الموافقة",
+      "خدمة سريعة",
+    ],
+    category: "تأشيرات",
+    icon: "🛂",
+  },
+  {
+    id: "2",
+    name: "استخراج التأشيرات السياحية",
+    image:
+      "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&auto=format&fit=crop&q=60",
+    description:
+      "خدمة استخراج التأشيرات السياحية لروسيا بأسرع وقت وأفضل الأسعار",
+    features: [
+      "معالجة سريعة",
+      "أسعار تنافسية",
+      "دعم على مدار الساعة",
+      "خبرة 10 سنوات",
+    ],
+    category: "تأشيرات",
+    icon: "✈️",
+  },
+  {
+    id: "4",
+    name: "حجوز الطيران",
+    image:
+      "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&auto=format&fit=crop&q=60",
+    description:
+      "احجز رحلاتك الجوية إلى روسيا بأفضل الأسعار والخطوط الجوية المميزة",
+    features: [
+      "أسعار مخفضة",
+      "خطوط جوية موثوقة",
+      "مرونة في التواريخ",
+      "دعم فني متخصص",
+    ],
+    category: "طيران",
+    icon: "🛫",
+  },
+  {
+    id: "5",
+    name: "الحجز الفندقي",
+    image:
+      "https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=800&auto=format&fit=crop&q=60",
+    description: "احجز في أفضل الفنادق الروسية مع ضمان أفضل الأسعار والخدمات",
+    features: ["فنادق 5 نجوم", "أسعار حصرية", "إلغاء مجاني", "خدمة عملاء 24/7"],
+    category: "إقامة",
+    icon: "🏨",
+  },
+  {
+    id: "6",
+    name: "الاستقبال في المطار",
+    image:
+      "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&auto=format&fit=crop&q=60",
+    description: "خدمة استقبال VIP في المطار مع النقل المباشر إلى الفندق",
+    features: ["استقبال شخصي", "نقل فاخر", "مساعدة في الإجراءات", "مرشد عربي"],
+    category: "نقل",
+    icon: "🚗",
+  },
+  {
+    id: "7",
+    name: "التأمين على السفر",
+    image:
+      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&auto=format&fit=crop&q=60",
+    description: "تأمين شامل لرحلتك يغطي جميع المخاطر والطوارئ الطبية",
+    features: ["تغطية شاملة", "تأمين طبي", "تأمين الأمتعة", "مساعدة 24/7"],
+    category: "تأمين",
+    icon: "🛡️",
+  },
+  {
+    id: "8",
+    name: "رحلات سياحية",
+    image:
+      "https://images.unsplash.com/photo-1520637836862-4d197d17c838?w=800&auto=format&fit=crop&q=60",
+    description: "رحلات سياحية منظمة لأهم المعالم الروسية مع مرشدين عرب",
+    features: ["مرشدين عرب", "برامج مخصصة", "مجموعات صغيرة", "وجبات مشمولة"],
+    category: "جولات",
+    icon: "🗺️",
+  },
+  {
+    id: "9",
+    name: "حجز التذاكر",
+    image:
+      "https://images.unsplash.com/photo-1594736797933-d0d4bfb00de3?w=800&auto=format&fit=crop&q=60",
+    description: "احجز تذاكر القطارات والحافلات والعروض المسرحية والرياضية",
+    features: ["تذاكر القطار", "تذاكر العروض", "تذاكر المتاحف", "حجز مسبق"],
+    category: "تذاكر",
+    icon: "🎫",
+  },
+  {
+    id: "10",
+    name: "ترجمة الوثائق",
+    image:
+      "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&auto=format&fit=crop&q=60",
+    description: "ترجمة معتمدة لجميع الوثائق المطلوبة للسفر والإقامة في روسيا",
+    features: ["ترجمة معتمدة", "ترجمة فورية", "جميع اللغات", "تسليم سريع"],
+    category: "خدمات",
+    icon: "📄",
+  },
+];
+
+export const testimonials: Testimonial[] = [
+  {
+    id: "1",
+    image:
+      "https://images.unsplash.com/photo-1611262588024-d12430b98920?w=600&auto=format&fit=crop&q=80",
+    description:
+      "محادثة واتساب مع أحمد محمد من السعودية حول رحلة موسكو الكلاسيكية",
+  },
+  {
+    id: "2",
+    image:
+      "https://images.unsplash.com/photo-1611262588019-db6b814e6d7a?w=600&auto=format&fit=crop&q=80",
+    description:
+      "تقييم عبر سناب شات من فاطمة الزهراء من الإمارات عن عطلة سوتشي",
+  },
+  {
+    id: "3",
+    image:
+      "https://images.unsplash.com/photo-1611262588024-d12430b98920?w=600&auto=format&fit=crop&q=80",
+    description: "رسائل واتساب من محمد العلي من الكويت عن تجربة سانت بطرسبرغ",
+  },
+  {
+    id: "4",
+    image:
+      "https://images.unsplash.com/photo-1611262588019-db6b814e6d7a?w=600&auto=format&fit=crop&q=80",
+    description: "محادثة مع عائشة أحمد من قطر حول الباقة الشاملة",
+  },
+  {
+    id: "5",
+    image:
+      "https://images.unsplash.com/photo-1611262588024-d12430b98920?w=600&auto=format&fit=crop&q=80",
+    description: "تقييم عبدالرحمن خالد من البحرين للرحلة العائلية",
+  },
+  {
+    id: "6",
+    image:
+      "https://images.unsplash.com/photo-1611262588019-db6b814e6d7a?w=600&auto=format&fit=crop&q=80",
+    description: "رسائل نورا سالم من عمان عن تجربة الهاسكي",
+  },
+  {
+    id: "7",
+    image:
+      "https://images.unsplash.com/photo-1611262588024-d12430b98920?w=600&auto=format&fit=crop&q=80",
+    description: "محادثة يوسف المنصوري من الأردن حول الجولة الثقافية",
+  },
+  {
+    id: "8",
+    image:
+      "https://images.unsplash.com/photo-1611262588019-db6b814e6d7a?w=600&auto=format&fit=crop&q=80",
+    description: "تقييم مريم الحمادي من الإمارات لباقة شهر العسل",
+  },
+  {
+    id: "9",
+    image:
+      "https://images.unsplash.com/photo-1611262588024-d12430b98920?w=600&auto=format&fit=crop&q=80",
+    description: "رسائل خالد التميمي من السعودية عن خدمات النقل VIP",
+  },
+  {
+    id: "10",
+    image:
+      "https://images.unsplash.com/photo-1611262588019-db6b814e6d7a?w=600&auto=format&fit=crop&q=80",
+    description: "محادثة ليلى القاسمي من الكويت حول جولة تذوق الطعام",
+  },
+  {
+    id: "11",
+    image:
+      "https://images.unsplash.com/photo-1611262588024-d12430b98920?w=600&auto=format&fit=crop&q=80",
+    description: "تقييم سعد الدوسري من قطر لرحلة الأعمال",
+  },
+  {
+    id: "12",
+    image:
+      "https://images.unsplash.com/photo-1611262588019-db6b814e6d7a?w=600&auto=format&fit=crop&q=80",
+    description: "رسائل هدى العبدالله من البحرين عن جولة التسوق",
   },
 ];
